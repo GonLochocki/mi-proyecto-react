@@ -1,13 +1,17 @@
-import styles from "./App.module.css";
+import Home from "./components/pages/home/Home";
+import Navbar from "./components/layout/navbar/Navbar";
+import ItemListContainer from "./components/itemList/ItemListContainer";
 
 const App = () => {
+  let nombre = "Liam";
+
+  const saludo = "Hola como estas";
+
   return (
     <div>
-      <h1 className={styles.strong}>Este es el App</h1>;
-      <img
-        src="https://w7.pngwing.com/pngs/804/706/png-transparent-footwear-shoe-clothing-valco-plast-sneakers-others-miscellaneous-logo-vector-icons.png"
-        alt=""
-      />
+      <Navbar />
+      <Home nombre={nombre} />
+      <ItemListContainer saludo={saludo} />
     </div>
   );
 };
