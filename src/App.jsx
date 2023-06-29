@@ -1,12 +1,15 @@
 import Navbar from "./components/layout/navbar/Navbar";
-import ItemDetailContainer from "./components/pages/itemDetail/ItemDetailcontainer";
+import ItemListContainer from "./components/pages/itemList/ItemListContainer";
+
+
 
 
 const App = () => {
   return (
     <div>
       <Navbar />
-      <ItemDetailContainer />
+      <ItemListContainer />
+      
     </div>
   );
 };
