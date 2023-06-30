@@ -1,35 +1,17 @@
-import { Button } from "@mui/material";
+import { Button } from "@mui/material"
 
-const Counter = ({ stock, agregarAlCarrito, counter, setCounter }) => {
 
-  
+const Counter = ({stock, agregarAlCarrito, counter, setCounter}) => {
 
   return (
-    <div style={{display: "flex"}}>
-      <Button
-        disabled={counter <= 1}
-        variant="contained"
-        color="primary"
-        onClick={() => setCounter(counter - 1)}
-      >
-        -
-      </Button>
+    <div>
+      <Button variant="contained" disabled={counter <= 1} onClick={()=>setCounter(counter - 1)}>-</Button>
       <h2>{counter}</h2>
-      <Button
-        disabled={counter >= stock}
-        variant="contained"
-        color="primary"
-        onClick={() => setCounter(counter + 1)}
-      >
-        +
-      </Button>
+      <Button variant="contained" disabled={stock >= counter} onClick={()=> setCounter(counter + 1)} >+</Button>
       <br />
-      <br />
-      <div>
-        <Button variant="contained" color="success" onClick={()=>agregarAlCarrito(counter)}>Agregar al Carrito</Button>
-      </div>
+      <Button color="error" variant="contained" onClick={()=>agregarAlCarrito(counter)}>Agregar al Carrito</Button>
     </div>
-  );
-};
+  )
+}
 
-export default Counter;
+export default Counter

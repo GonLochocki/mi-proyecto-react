@@ -1,20 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { productos } from "../../../productsMock";
 import ItemDetail from "./ItemDetail";
 
+
 const ItemDetailContainer = () => {
-  const [product, setProduct] = useState({
-    id: 1,
-    name: "telefono",
-    price: 220,
-    stock: 5,
-  });
+
+  const [product, setProduct] = useState({})
+
+  let id = 2
+
+  useEffect(()=>{
+    let promise = new Promise((resolve, reject)=>{
+      let productSelected = productos.find((producto)=> producto.id === id)
+      resolve(productSelected)
+    })
+
+    promise.then((res)=> setProduct(res)).catch((err)=> console.log(err))
+
+  }, [id])
 
   const agregarAlCarrito = (cantidad) => {
-    let data = {...product, quantity: cantidad,};
-    console.log(data);
-  };
+    let data = {...product, quantity: cantidad}
+  }
 
-  return <ItemDetail product={product} agregarAlCarrito={agregarAlCarrito} />;
-};
+  return <ItemDetail product={product} agregarAlCarrito={agregarAlCarrito}/>
+}
 
-export default ItemDetailContainer;
+export default ItemDetailContainer
