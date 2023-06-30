@@ -9,11 +9,12 @@ const ProductCard = ({ item }) => {
 
   
   return (        
-        <Card sx={{ Width: 345 }}>
+        <Card sx={{ width: "100%" }}>
           <CardMedia
-            sx={{ height: 140, Width: "100%" }}
+            component="img"
             image={item.img}
-            title={item.title}
+            alt={item.title}
+            style={{ objectFit: "cover", height: 140, width: "100%" }}
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
