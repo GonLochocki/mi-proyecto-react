@@ -13,11 +13,7 @@ const ItemListContainer = () => {
     promise.then((res) => setItems(res)).catch((err) => console.log(err));
   }, []);
 
-  return (
-    <div>
-      <ItemList items={items} />
-    </div>
-  );
+  return <ItemList items={items} />;
 };
 
 export default ItemListContainer;

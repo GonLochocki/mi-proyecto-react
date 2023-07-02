@@ -43,13 +43,18 @@ const Navbar = () => {
   return (
     <div>
       <AppBar position="static">
-        <Toolbar sx={{justifyContent: {xs:"space-between"}, display:{xs:"flex"}}}>
+        <Toolbar
+          sx={{
+            justifyContent: { xs: "space-between" },
+            display: { xs: "flex" },
+          }}
+        >
           <IconButton
             color="inherit"
             size="large"
             onClick={() => setOpen(true)}
             sx={{
-              display: { xs: "flex", sm: "none" }                                           
+              display: { xs: "flex", sm: "none" },
             }}
           >
             <MenuIcon />

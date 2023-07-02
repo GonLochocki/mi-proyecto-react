@@ -5,6 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
+
 const ProductCard = ({ item }) => {
 
   
@@ -14,7 +15,7 @@ const ProductCard = ({ item }) => {
             component="img"
             image={item.img}
             alt={item.title}
-            style={{ objectFit: "cover", height: 140, width: "100%" }}
+            sx={{  height: "auto", width: "100%" }}
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
@@ -25,7 +26,7 @@ const ProductCard = ({ item }) => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small">Ver Detalle</Button>
+            <Button variant="contained" size="small">Ver Detalle</Button>
           </CardActions>
         </Card>  
         
@@ -35,3 +36,5 @@ const ProductCard = ({ item }) => {
 };
 
 export default ProductCard;
+
+
