@@ -13,29 +13,25 @@ import ElectricBoltIcon from "@mui/icons-material/ElectricBolt";
 import { useState } from "react";
 import NavbarDrawer from "./NavbarDrawer";
 import CartWidget from "../../common/cartWidget/CartWidget";
+import { Outlet } from "react-router-dom"
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   const navLinks = [
     {
-      title: "Guitarras",
+      title: "Todos los productos",
       path: "#guitarras",
       icon: <MusicNoteIcon />,
     },
     {
-      title: "Multiefectos",
+      title: "Eléctricas",
       path: "#multiefectos",
       icon: <MusicNoteIcon />,
     },
     {
-      title: "Pedales",
+      title: "Acústicas",
       path: "#pedales",
-      icon: <MusicNoteIcon />,
-    },
-    {
-      title: "Home Studio",
-      path: "#home-studio",
       icon: <MusicNoteIcon />,
     },
   ];
@@ -59,6 +55,7 @@ const Navbar = () => {
           >
             <MenuIcon />
           </IconButton>
+          
           <Typography
             variant="h6"
             sx={{ flexGrow: 1, display: { xs: "none", sm: "flex" } }}
@@ -88,6 +85,9 @@ const Navbar = () => {
       >
         <NavbarDrawer navLinks={navLinks} />
       </Drawer>
+
+      <Outlet />
+
     </div>
   );
 };

@@ -105,7 +105,7 @@
         category: "acoustic",
         description: "Acoustic Guitar",
         stock: 5,
-        img: "https://www.ibanez.com/common/product_artist_file/file/p_region_AAD400CE_LGS_47_02.png"
+        img: "https://www.ibanez.com/common/product_artist_file/file/p_region_PS3CM_33_01.png"
     }    
 ];
 

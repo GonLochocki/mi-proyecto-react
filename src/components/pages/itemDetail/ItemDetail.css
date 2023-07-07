@@ -1,0 +1,14 @@
+h2 {
+  color: rgba(51, 51, 60, 0.836);
+  padding: 10px;
+}
+
+.body-detail {
+    background-color: rgba(128, 128, 128, 0.205);
+}
+
+.image-detail {
+  object-fit: cover;
+  height: auto;
+  width: 100%;
+}

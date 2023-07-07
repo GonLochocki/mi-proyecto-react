@@ -1,8 +1,8 @@
-.itemList-container {
-    background-color: rgb(206, 206, 206);
-    padding: 15px;    
+
+.MuiPaper-root:hover {
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.5);
 }
 
-.titulo {
-    padding-bottom: 13px;
+.itemList-container {
+    margin: 20px 10px 0px 10px;
 }

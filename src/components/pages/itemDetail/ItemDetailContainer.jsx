@@ -5,7 +5,7 @@ import ItemDetail from "./ItemDetail";
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState({});
 
-  let id = 4;
+  let id = 12;
 
   useEffect(() => {
     let promise = new Promise((resolve, reject) => {
