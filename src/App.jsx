@@ -10,7 +10,8 @@ const App = () => {
       <Routes>
         <Route element={<Navbar />}>
           <Route path="/" element={<ItemListContainer />} />
-          <Route path="/itemDetail" element={<ItemDetailContainer />} />
+          <Route path="/category/:category" element={<ItemListContainer />} />
+          <Route path="/itemDetail/:id" element={<ItemDetailContainer />} />
           <Route path="/cart" element={<Cart />} />
         </Route>
           <Route path="*" element={<h1>ERROR 404</h1>} />

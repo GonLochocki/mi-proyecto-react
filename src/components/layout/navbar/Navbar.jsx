@@ -13,7 +13,8 @@ import ElectricBoltIcon from "@mui/icons-material/ElectricBolt";
 import { useState } from "react";
 import NavbarDrawer from "./NavbarDrawer";
 import CartWidget from "../../common/cartWidget/CartWidget";
-import { Outlet } from "react-router-dom"
+import { Outlet, Link } from "react-router-dom";
+import "./Navbar.css"
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -21,17 +22,17 @@ const Navbar = () => {
   const navLinks = [
     {
       title: "Todos los productos",
-      path: "#guitarras",
+      path: "/",
       icon: <MusicNoteIcon />,
     },
     {
       title: "Eléctricas",
-      path: "#multiefectos",
+      path: "/category/electric",
       icon: <MusicNoteIcon />,
     },
     {
       title: "Acústicas",
-      path: "#pedales",
+      path: "/category/acoustic",
       icon: <MusicNoteIcon />,
     },
   ];
@@ -55,23 +56,22 @@ const Navbar = () => {
           >
             <MenuIcon />
           </IconButton>
-          
-          <Typography
-            variant="h6"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "flex" } }}
-          >
-            <ElectricBoltIcon />
-          </Typography>
+
+          <Link to="/" style={{ color: "white" }}>
+            <Typography
+              variant="h6"
+              sx={{ flexGrow: 1, display: { xs: "none", sm: "flex" } }}
+            >
+              <ElectricBoltIcon />
+            </Typography>
+          </Link>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navLinks.map((item) => (
-              <Button
-                color="inherit"
-                key={item.title}
-                component="a"
-                href={item.path}
-              >
-                {item.title}
-              </Button>
+              <Link to={item.path}>
+                <Button className="link" key={item.title}>
+                  {item.title}
+                </Button>
+              </Link>
             ))}
           </Box>
           <CartWidget />
@@ -87,7 +87,6 @@ const Navbar = () => {
       </Drawer>
 
       <Outlet />
-
     </div>
   );
 };

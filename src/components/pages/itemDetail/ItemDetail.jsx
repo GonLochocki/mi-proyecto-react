@@ -23,12 +23,12 @@ const ItemDetail = ({ product, agregarAlCarrito }) => {
             <Box
               sx={{
                 display: "flex",                
-                justifyContent: "space-between",
+                
                 alignItems: "center",
               }}
             >
               <h2>{product.title}</h2>
-              <h2>{product.category}</h2>
+              
               <h2>Precio: ${product.price}</h2>
             </Box>
             <Box>

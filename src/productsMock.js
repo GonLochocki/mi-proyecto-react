@@ -11,7 +11,7 @@
     {
         id: 2,
         title: "Ibanez-AT100CL",
-        price: 700,
+        price: 750,
         category: "electric",
         description: "Andy Timmons Signature",
         stock: 3,
@@ -20,7 +20,7 @@
     {
         id: 3,
         title: "Ibanez-JEM77P",
-        price: 300,
+        price: 700,
         category: "electric",
         description: "Steve Vai Signature",
         stock: 4,
@@ -41,7 +41,7 @@
         price: 1800,
         category: "electric",
         description: "Joe Satriani Signature",
-        stock: 2,
+        stock: 4,
         img: "https://www.ibanez.com/common/product_artist_file/file/p_region_JS2480_MCR_00_02.png"
     },
     {
@@ -64,12 +64,12 @@
     },
     {
         id: 8,
-        title: "Ibanez-RG5120M",
-        price: 300,
-        category: "electric",
-        description: "Prestige",
-        stock: 3,
-        img: "https://www.ibanez.com/common/product_artist_file/file/p_region_RG5120M_FCN_00_01.png"
+        title: "AW54",
+        price: 850,
+        category: "acoustic",
+        description: "Acoustic Guitar",
+        stock: 2,
+        img: "https://www.ibanez.com/common/product_artist_file/file/p_region_AW54_OPN_1P_02.png"
     },
     {
         id: 9,
@@ -102,7 +102,7 @@
         id: 12,
         title: "FRH10N",
         price: 900,
-        category: "acoustic",
+        category: "electric",
         description: "Acoustic Guitar",
         stock: 5,
         img: "https://www.ibanez.com/common/product_artist_file/file/p_region_PS3CM_33_01.png"
