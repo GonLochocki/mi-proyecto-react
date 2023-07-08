@@ -67,8 +67,8 @@ const Navbar = () => {
           </Link>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navLinks.map((item) => (
-              <Link to={item.path}>
-                <Button className="link" key={item.title}>
+              <Link to={item.path} key={item.title}>
+                <Button className="link">
                   {item.title}
                 </Button>
               </Link>

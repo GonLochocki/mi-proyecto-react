@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import { productos } from "../../../productsMock";
 import ItemDetail from "./ItemDetail";
-import { useParams} from "react-router-dom"
+import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState({});
 
-  let {id} = useParams()
-  
+  let { id } = useParams();
 
   useEffect(() => {
     let promise = new Promise((resolve, reject) => {
