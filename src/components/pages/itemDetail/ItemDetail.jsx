@@ -28,7 +28,7 @@ const ItemDetail = ({ product, agregarAlCarrito }) => {
               }}
             >
               <h2>{product.title}</h2>
-              
+              <h2>Stock: {product.stock}</h2>
               <h2>Precio: ${product.price}</h2>
             </Box>
             <Box>
