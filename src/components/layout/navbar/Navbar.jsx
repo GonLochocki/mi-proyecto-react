@@ -14,7 +14,7 @@ import { useState } from "react";
 import NavbarDrawer from "./NavbarDrawer";
 import CartWidget from "../../common/cartWidget/CartWidget";
 import { Outlet, Link } from "react-router-dom";
-import "./Navbar.css"
+import "./Navbar.css";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -68,9 +68,7 @@ const Navbar = () => {
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navLinks.map((item) => (
               <Link to={item.path} key={item.title}>
-                <Button className="link">
-                  {item.title}
-                </Button>
+                <Button className="link">{item.title}</Button>
               </Link>
             ))}
           </Box>

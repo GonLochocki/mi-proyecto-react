@@ -4,7 +4,7 @@ import "./Counter.css";
 const Counter = ({ stock, agregarAlCarrito, counter, setCounter }) => {
   return (
     <div className="contador">
-      <Box sx={{display:"flex"}}>
+      <Box sx={{display:"flex", justifyContent:"center", alignItems:"center", padding: 3, gap: 3}}>
         <Button
           disabled={counter <= 1}
           variant="contained"
@@ -22,7 +22,7 @@ const Counter = ({ stock, agregarAlCarrito, counter, setCounter }) => {
         </Button>
       </Box>
      
-      <Box>
+      <Box sx={{display:"flex", justifyContent:"center", alignItems:"center"}}>
         <Button
           color="warning"
           variant="contained"
