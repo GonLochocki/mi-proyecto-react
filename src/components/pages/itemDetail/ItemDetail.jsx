@@ -56,42 +56,7 @@ const ItemDetail = ({ product, agregarAlCarrito }) => {
           />
         </div>
       </Box>
-    </Box>
-
-    // <div className="body-detail">
-    //   <Grid container>
-    //     <Grid item xs={12} md={6}>
-    //       <Box textAlign="center" sx={{ width: "50vw", height: "auto" }}>
-    //         <img
-    //           src={product.img}
-    //           alt={product.title}
-    //           className="image-detail"
-    //         />
-    //       </Box>
-    //     </Grid>
-    //     <Grid item xs={12} md={6}>
-    //       <Box>
-    //         <Box
-    //           sx={{
-    //             display: "flex",
-
-    //             alignItems: "center",
-    //           }}
-    //         >
-    //           <h2>{product.title}</h2>
-    //           <h2>Stock: {product.stock}</h2>
-    //           <h2>Precio: ${product.price}</h2>
-    //         </Box>
-    //         <Box>
-    //           <CounterContainer
-    //             stock={product.stock}
-    //             agregarAlCarrito={agregarAlCarrito}
-    //           />
-    //         </Box>
-    //       </Box>
-    //     </Grid>
-    //   </Grid>
-    // </div>
+    </Box>   
   );
 };
 
