@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { CartContext } from "../../../context/CartContext";
 
 const Cart = () => {
-  const { cart, limpiarCarrito, eliminarDelCarrito } = useContext(CartContext);
+  const { cart, vaciarCarrito, eliminarDelCarrito } = useContext(CartContext);
   
 
   return (
@@ -17,7 +17,7 @@ const Cart = () => {
           </div>
         );
       })}
-      <button onClick={limpiarCarrito}>Vaciar Carrito</button>
+      <button onClick={vaciarCarrito}>Vaciar Carrito</button>
     </div>
   );
 };
