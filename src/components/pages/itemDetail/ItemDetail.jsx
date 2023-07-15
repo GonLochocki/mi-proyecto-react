@@ -11,7 +11,7 @@ const ItemDetail = ({ product, agregarAlCarrito }) => {
         backgroundColor: { xs: "lightgrey", sm: "orange", md: "gray" },
       }}
     >
-      <Box sx={{ width: {xs:"100%", sm:"80%"} , padding: "10px", margin: {sm:"0px auto"} }}>
+      <Box sx={{ width: {xs:"100%", sm:"60%"} , padding: "10px", margin: {sm:"0px auto"} }}>
         <Box>
           <img
             src={product.img}
