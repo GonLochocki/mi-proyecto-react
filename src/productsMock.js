@@ -68,7 +68,7 @@
         price: 850,
         category: "acoustic",
         description: "Acoustic Guitar",
-        stock: 2,
+        stock: 4,
         img: "https://www.ibanez.com/common/product_artist_file/file/p_region_AW54_OPN_1P_02.png"
     },
     {

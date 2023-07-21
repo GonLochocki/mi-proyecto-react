@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const ProductCard = ({ item }) => {
   return (
-    <Card sx={{ width: "100%" }}>
+    <Card sx={{ width: "100%"}}>
       <CardMedia
         component="img"
         image={item.img}

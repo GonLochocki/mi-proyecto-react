@@ -1,17 +1,21 @@
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import CounterContainer from "../../common/counter/CounterContainer";
-import "./ItemDetail.css";
 
-const ItemDetail = ({ product, agregarAlCarrito }) => {
+const ItemDetail = ({ product, agregarAlCarrito, cantidadEnCarrito }) => {
   return (
     <Box
       sx={{
         width: "100%",
-        height: "100vh",
-        backgroundColor: { xs: "lightgrey", sm: "orange", md: "gray" },
+        height: "90vh",
       }}
     >
-      <Box sx={{ width: {xs:"100%", sm:"60%"} , padding: "10px", margin: {sm:"0px auto"} }}>
+      <Box
+        sx={{
+          width: { xs: "100%", sm: "60%" },
+          padding: "10px",
+          margin: { sm: "0px auto" },
+        }}
+      >
         <Box>
           <img
             src={product.img}
@@ -24,23 +28,23 @@ const ItemDetail = ({ product, agregarAlCarrito }) => {
             }}
           />
         </Box>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            boxShadow: "0 0 10px rgba(0, 0, 0, 0.5);",
-            borderRadius: "10px",
-            gap: 1
-          }}
-        >
-          <h2 style={{ textAlign: "center", fontSize:"20px" }}>{product.title}</h2>
-          <h2 style={{ textAlign: "center", fontSize:"20px" }}>Precio: ${product.price}</h2>
-          <h2 style={{ textAlign: "center", fontSize:"20px" }}>
-            Cantidad disponible: {product.stock}
-          </h2>
-        </Box>
+        <Grid container spacing={1}>
+          <Grid item xs={12} sm={4}>
+            <h2 style={{ textAlign: "center", fontSize: "20px" }}>
+              {product.title}
+            </h2>
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <h2 style={{ textAlign: "center", fontSize: "20px" }}>
+              Precio: ${product.price}
+            </h2>
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <h2 style={{ textAlign: "center", fontSize: "20px" }}>
+              Cantidad disponible: {product.stock}
+            </h2>
+          </Grid>
+        </Grid>
         <Box sx={{ padding: 2, textAlign: "justify" }}>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi
@@ -53,10 +57,11 @@ const ItemDetail = ({ product, agregarAlCarrito }) => {
           <CounterContainer
             stock={product.stock}
             agregarAlCarrito={agregarAlCarrito}
+            cantidadEnCarrito={cantidadEnCarrito}
           />
         </div>
       </Box>
-    </Box>   
+    </Box>
   );
 };
 

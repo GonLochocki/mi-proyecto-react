@@ -1,8 +1,16 @@
-import { Button, TextField } from "@mui/material";
+import { Button, TextField, Box } from "@mui/material";
 import { useFormik } from "formik";
+import { useEffect, useState } from "react";
 import * as Yup from "yup";
 
+
 const CheckoutContainer = () => {
+  const [datosUsuario, setDatosUsuario] = useState([]);
+
+  useEffect(() => {
+    localStorage.setItem("datos-form", JSON.stringify(datosUsuario));
+  }, [datosUsuario]);
+
   const { handleSubmit, handleChange, errors } = useFormik({
     initialValues: {
       name: "",
@@ -10,7 +18,8 @@ const CheckoutContainer = () => {
       password: "",
     },
     onSubmit: (data) => {
-      console.log(data);
+      setDatosUsuario([...datosUsuario, data]);    
+      
     },
     validationSchema: Yup.object({
       name: Yup.string()
@@ -25,91 +34,56 @@ const CheckoutContainer = () => {
     validateOnChange: false,
   });
 
-  console.log(errors);
-
   return (
     <div style={{ padding: "50px" }}>
       <form onSubmit={handleSubmit}>
-        <TextField
-          label="Nombre"
-          variant="outlined"
-          name="name"
-          onChange={handleChange}
-          error={errors.name ? true : false}
-          helperText={errors.name}
-        />
-        <TextField
-          label="Email"
-          variant="outlined"
-          name="email"
-          onChange={handleChange}
-          error={errors.email ? true : false}
-          helperText={errors.email}
-        />
-        <TextField
-          label="Password"
-          variant="outlined"
-          name="password"
-          onChange={handleChange}
-          error={errors.password ? true : false}
-          helperText={errors.password}
-        />
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+            gap: 5,
+            border:"solid 1px black",
+            width:"30%",
+            padding:"50px",
+            margin:"0px auto",
+            boxShadow: 10
+          }}
+        >
+          <h2>Registro</h2>
+          <TextField
+            label="Nombre"
+            variant="outlined"
+            name="name"
+            onChange={handleChange}
+            error={errors.name ? true : false}
+            helperText={errors.name}
+          />
+          <TextField
+            label="Email"
+            variant="outlined"
+            name="email"
+            onChange={handleChange}
+            error={errors.email ? true : false}
+            helperText={errors.email}
+          />
+          <TextField
+            label="Password"
+            variant="outlined"
+            name="password"
+            onChange={handleChange}
+            error={errors.password ? true : false}
+            helperText={errors.password}
+          />
 
-        <Button type="submit" variant="contained" size="small">
-          enviar
-        </Button>
+          <Button type="submit" variant="contained" size="small">
+            enviar
+          </Button>
+        </Box>
       </form>
     </div>
   );
 };
 
 export default CheckoutContainer;
-
-{
-  /*import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-
-const CheckoutContainer = () => {
-  const navigate = useNavigate();
-
-  const [userData, setUserData] = useState({
-    name: "",
-    lastName: "",
-  });
-
-  const funcionDelFormulario = (event) => {
-    event.preventDefault();
-    navigate("/");
-  };
-
-  const funcionDeLosInputs = (event) => {
-    setUserData({ ...userData, [event.target.name]: event.target.value });
-  };
-
-  
-
-  return (
-    <div>
-      <h1>Checkout</h1>
-      <form onSubmit={funcionDelFormulario}>
-        <input
-          type="text"
-          placeholder="ingrese su nombre"
-          name="name"
-          onChange={funcionDeLosInputs}
-        />
-        <input
-          type="text"
-          placeholder="ingrese su apellido"
-          name="lastName"
-          onChange={funcionDeLosInputs}
-        />
-        <button type="submit">Enviar</button>
-      </form>
-    </div>
-  );
-};
-
-export default CheckoutContainer;
- */
-}
