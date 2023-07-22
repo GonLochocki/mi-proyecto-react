@@ -3,14 +3,8 @@ import { useFormik } from "formik";
 import { useEffect, useState } from "react";
 import * as Yup from "yup";
 
-
 const CheckoutContainer = () => {
-  const [datosUsuario, setDatosUsuario] = useState([]);
-
-  useEffect(() => {
-    localStorage.setItem("datos-form", JSON.stringify(datosUsuario));
-  }, [datosUsuario]);
-
+  
   const { handleSubmit, handleChange, errors } = useFormik({
     initialValues: {
       name: "",

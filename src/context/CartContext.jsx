@@ -39,17 +39,17 @@ const CartContextComponente = ({ children }) => {
     return total;
   };
 
-  const precioTotal = () => { 
-    let total = cart.reduce((acc, item)=>{
-      return acc + (item.price * item.quantity)
-    },0)
+  const precioTotal = () => {
+    let total = cart.reduce((acc, item) => {
+      return acc + item.price * item.quantity;
+    }, 0);
     return total;
-}
+  };
 
-const obtenerCantidadPorId = (id) => {
-  let producto = cart.find((item) => item.id === +id)
-  return producto?.quantity
-}
+  const obtenerCantidadPorId = (id) => {
+    let producto = cart.find((item) => item.id === +id);
+    return producto?.quantity;
+  };
 
   let data = {
     cart,
@@ -65,5 +65,3 @@ const obtenerCantidadPorId = (id) => {
 };
 
 export default CartContextComponente;
-
-

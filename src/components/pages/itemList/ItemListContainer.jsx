@@ -36,19 +36,4 @@ const ItemListContainer = () => {
 
 export default ItemListContainer;
 
-// useEffect anterior:
 
-{
-  /* useEffect(() => {
-    let productosFiltrados = productos.filter(
-      (producto) => producto.category === category
-    );
-    let promise = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(category ? productosFiltrados : productos);
-      }, 1000);
-    });
-
-    promise.then((res) => setItems(res)).catch((err) => console.log(err));
-  }, [category]); */
-}

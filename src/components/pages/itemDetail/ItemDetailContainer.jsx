@@ -2,7 +2,6 @@ import { useContext, useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../../../context/CartContext";
-
 import ItemDetail from "./ItemDetail";
 import { dataBase } from "../../../firebaseConfig";
 import { getDoc, collection, doc } from "firebase/firestore";
