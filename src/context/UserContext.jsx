@@ -7,7 +7,7 @@ const UserContextComponent = ({ children }) => {
 
   const agregarUsuario = (usuario) => {
     let existe = users.some(
-      (elemento) => elemento.document === usuario.document 
+      (elemento) => elemento.dni === usuario.dni
     );
     if (existe) {
       console.log("El usuario ya existe");
