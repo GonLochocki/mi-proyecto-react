@@ -3,42 +3,39 @@ import { useFormik } from "formik";
 import { useContext, useEffect, useState } from "react";
 import * as Yup from "yup";
 import { UserContext } from "../../../context/UserContext";
-import { getDoc, doc, collection } from "firebase/firestore";
+import { collection, doc, getDoc } from "firebase/firestore";
 import { dataBase } from "../../../firebaseConfig";
-
 
 const LoginContainer = () => {
   const { agregarUsuario, users } = useContext(UserContext);
   const [usuario, setUsuario] = useState({});
 
-
-  useEffect(() => {
-    let coleccion = collection(dataBase, "usuarios");
-    let documento = doc(coleccion, "29593823");
-    getDoc(documento).then(res => {
-    console.log(res)
-    })
-
-    agregarUsuario(usuario);
-  }, [usuario]);
-
   const { handleSubmit, handleChange, errors } = useFormik({
     initialValues: {
-      name: "",
-      document: "",
+      nombre: "",
+      dni: "",
       password: "",
     },
     onSubmit: (data) => {
+      let coleccion = collection(dataBase, "usuarios");
+      let documento = doc(coleccion, data.dni);
+      getDoc(documento).then((res) => {
+        if (res.exists()) {
+          console.log("El usuario existe");
+        } else {
+          agregarUsuario(data);
+        }
+      });
       setUsuario(data);
     },
 
     validationSchema: Yup.object({
-      name: Yup.string()
+      nombre: Yup.string()
         .required("Campo obligatorio")
         .min(3, "Debe tener al menos 3 letras.")
         .max(20, "No debe superar las 20 letras."),
       password: Yup.string().required("Campo obligatorio"),
-      document: Yup.string().required("Campo obligatorio"),
+      dni: Yup.string().required("Campo obligatorio"),
     }),
     validateOnChange: false,
   });

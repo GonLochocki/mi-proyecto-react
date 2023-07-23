@@ -12,10 +12,10 @@ const Login = ({handleChange, handleSubmit, errors}) => {
           <TextField
             label="Usuario"
             variant="outlined"
-            name="name"
+            name="nombre"
             onChange={handleChange}
-            error={errors.name ? true : false}
-            helperText={errors.name}
+            error={errors.nombre ? true : false}
+            helperText={errors.nombre}
           />
            <TextField
             label="Documento"

@@ -13,6 +13,8 @@ const ItemDetailContainer = () => {
 
   let cantidadEnCarrito = obtenerCantidadPorId(id);
 
+  
+
   useEffect(() => {
     let referencia_a_coleccion = collection(dataBase, "productos");
     let referencia_a_documento = doc(referencia_a_coleccion, id);
