@@ -8,30 +8,20 @@ const UserContextComponent = ({ children }) => {
   const [users, setUsers] = useState([]);
 
   const agregarUsuario = async (usuario) => {
-    let existeEnEstado = users.some((user) => user.dni === usuario.dni);
-    let existeEnDb = false;
-
-    let coleccion = collection(dataBase, "usuarios");
-    let documento = doc(coleccion, usuario.dni);
-    let resultado = await getDoc(documento);
-
-    if (resultado.exists()) {
-      existeEnDb = true;
-      console.log("El usuario ya existe en la base de datos");
-    }
-
-    if (existeEnEstado || existeEnDb) {
-      console.log("El usuario ya existe");
+    let existe = users.some((user) => user.dni === usuario.dni);
+    if (existe) {
+      console.log("El usuario existe en el estado");
     } else {
       setUsers([...users, usuario]);
+      console.log("Usuario agregado existosamente al estado");
+    }
 
-      try {
-        const usuariosRef = collection(dataBase, "usuarios");
-        await addDoc(usuariosRef, usuario);
-        console.log("Usuario agregado existosamente");
-      } catch (err) {
-        console.log(err);
-      }
+    try {
+      let coleccion = collection(dataBase, "usuarios");
+      await addDoc(coleccion, usuario);
+      console.log("Usuario agregado exitosamente a Firebase");
+    } catch (err) {
+      console.log(err);
     }
   };
 
