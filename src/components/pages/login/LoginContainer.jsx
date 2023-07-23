@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import { useContext, useEffect, useState } from "react";
 import * as Yup from "yup";
 import { UserContext } from "../../../context/UserContext";
-import { getDocs, query, where, collection } from "firebase/firestore";
+import { getDoc, doc, collection } from "firebase/firestore";
 import { dataBase } from "../../../firebaseConfig";
 
 const LoginContainer = () => {
@@ -13,7 +13,14 @@ const LoginContainer = () => {
 
   useEffect(() => {
     let coleccion = collection(dataBase, "usuarios");
-    let documento = query(coleccion, "dni", "==", usuario.document);
+    let documento = doc(coleccion, usuario.document);
+    getDoc(documento).then(res => {
+      if(document){
+        console.log("El usuario existe")
+      }else {
+        agregarUsuario(res)
+      }
+    })
 
     agregarUsuario(usuario);
   }, [usuario]);
