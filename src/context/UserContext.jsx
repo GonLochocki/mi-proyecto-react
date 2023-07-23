@@ -19,6 +19,7 @@ const UserContextComponent = ({ children }) => {
   let data = {
     agregarUsuario,
     users,
+    setUsers
   };
 
   return <UserContext.Provider value={data}>{children}</UserContext.Provider>;
