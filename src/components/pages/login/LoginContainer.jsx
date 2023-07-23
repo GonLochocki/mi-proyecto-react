@@ -3,15 +3,18 @@ import { useFormik } from "formik";
 import { useContext, useEffect, useState } from "react";
 import * as Yup from "yup";
 import { UserContext } from "../../../context/UserContext";
+import { getDocs, query, where, collection } from "firebase/firestore";
+import { dataBase } from "../../../firebaseConfig";
 
 const LoginContainer = () => {
   const { agregarUsuario, users } = useContext(UserContext);
 
   const [usuario, setUsuario] = useState({});
 
-  console.log(users);
-
   useEffect(() => {
+    let coleccion = collection(dataBase, "usuarios");
+    let documento = query(coleccion, "dni", "==", usuario.document);
+
     agregarUsuario(usuario);
   }, [usuario]);
 
