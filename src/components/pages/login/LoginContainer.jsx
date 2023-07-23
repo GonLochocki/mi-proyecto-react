@@ -12,17 +12,20 @@ const LoginContainer = () => {
   const [usuario, setUsuario] = useState({});
 
 
-  useEffect(() => {   
+  useEffect(() => {
+    let coleccion = collection(dataBase, "usuarios");
+    let documento = doc(coleccion, "29593823");
+    getDoc(documento).then(res => {
+    console.log(res)
+    })
 
     agregarUsuario(usuario);
   }, [usuario]);
 
-  console.log(users)
-
   const { handleSubmit, handleChange, errors } = useFormik({
     initialValues: {
       name: "",
-      dni: "",
+      document: "",
       password: "",
     },
     onSubmit: (data) => {
@@ -35,7 +38,7 @@ const LoginContainer = () => {
         .min(3, "Debe tener al menos 3 letras.")
         .max(20, "No debe superar las 20 letras."),
       password: Yup.string().required("Campo obligatorio"),
-      dni: Yup.string().required("Campo obligatorio"),
+      document: Yup.string().required("Campo obligatorio"),
     }),
     validateOnChange: false,
   });
