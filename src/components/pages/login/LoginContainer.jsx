@@ -13,13 +13,9 @@ const LoginContainer = () => {
 
   useEffect(() => {
     let coleccion = collection(dataBase, "usuarios");
-    let documento = doc(coleccion, usuario.document);
+    let documento = doc(coleccion, "27739230");
     getDoc(documento).then(res => {
-      if(document){
-        console.log("El usuario existe")
-      }else {
-        agregarUsuario(res)
-      }
+    console.log(res)
     })
 
     agregarUsuario(usuario);
