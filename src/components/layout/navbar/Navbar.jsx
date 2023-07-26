@@ -73,7 +73,7 @@ const Navbar = () => {
             ))}
           </Box>
           <CartWidget />
-          <Link to="/login">LOGIN</Link>
+       
         </Toolbar>
       </AppBar>
       <Drawer
