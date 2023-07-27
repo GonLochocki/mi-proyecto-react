@@ -1,11 +1,99 @@
+import { useContext, useState } from "react";
+import { CartContext } from "../../../context/CartContext";
+import { Button } from "@mui/material";
+import { dataBase } from "../../../firebaseConfig";
+import {
+  addDoc,
+  collection,
+  doc,
+  serverTimestamp,
+  updateDoc,
+} from "firebase/firestore";
+
+const CheckoutContainer = () => {
+  const { cart, precioTotal } = useContext(CartContext);
+  const [orderId, setOrderId] = useState("");
+  const [userData, setUserData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+  });
+
+  let total = precioTotal();
+
+  const handleSubmit = (evento) => {
+    evento.preventDefault();
+
+    let order = {
+      buyer: userData,
+      items: cart,
+      total,
+      date: serverTimestamp(),
+    };
+
+    let orderCollection = collection(dataBase, "orders");
+    addDoc(orderCollection, order).then((res) => {
+      setOrderId(res.id); // para guardar el id en un estado.
+    });
+
+    cart.forEach((elemento) => {
+      updateDoc(doc(dataBase, "productos", elemento.id), {
+        stock: elemento.stock - elemento.quantity,
+      });
+    });
+  };
+
+  const handleChange = (evento) => {
+    setUserData({ ...userData, [evento.target.name]: evento.target.value });
+  };
+
+  return (
+    <div>
+      <h1>Orden de compra</h1>
+      <h2>Ingrese los datos de quien retirará la compra:</h2>
+
+      {orderId ? (
+        <h2>Su numero de seguimiento es: {orderId}</h2>
+      ) : (
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Nombre..."
+            name="name"
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            placeholder="Telefono..."
+            name="phone"
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            placeholder="Correo electrónico..."
+            name="email"
+            onChange={handleChange}
+          />
+          <Button variant="contained" type="submit">
+            Comprar
+          </Button>
+        </form>
+      )}
+    </div>
+  );
+};
+
+export default CheckoutContainer;
+
+{
+  /* 
+
 import { Button, TextField, Box } from "@mui/material";
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
 import * as Yup from "yup";
 
-const CheckoutContainer = () => {
-  
-  const { handleSubmit, handleChange, errors } = useFormik({
+const { handleSubmit, handleChange, errors } = useFormik({
     initialValues: {
       name: "",
       email: "",
@@ -78,6 +166,6 @@ const CheckoutContainer = () => {
       </form>
     </div>
   );
-};
 
-export default CheckoutContainer;
+*/
+}

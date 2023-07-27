@@ -3,12 +3,13 @@ import AppRouter from "./router/AppRouter";
 import CartContextComponente from "./context/CartContext";
 
 
+
 const App = () => {
   return (
     <BrowserRouter>
      
       <CartContextComponente>
-        <AppRouter />
+        <AppRouter />        
       </CartContextComponente>
       
     </BrowserRouter>
