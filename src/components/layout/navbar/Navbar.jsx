@@ -44,6 +44,7 @@ const Navbar = () => {
           sx={{
             justifyContent: { xs: "space-between" },
             display: { xs: "flex" },
+           
           }}
         >
           <IconButton
@@ -73,9 +74,7 @@ const Navbar = () => {
             ))}
           </Box>
           <CartWidget />
-      <Link to="/dashboard">
-      dashboard
-      </Link>
+    
         </Toolbar>
       </AppBar>
       <Drawer

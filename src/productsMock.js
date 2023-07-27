@@ -16,7 +16,7 @@ export const productos = [
     img: "https://www.ibanez.com/common/product_artist_file/file/p_region_AT100CL_SB_00_07.png",
   },
   {
-    title: "Ibanez-JEM77P",
+    title: "Ibanez-JEM77PQ",
     price: 700,
     category: "electric",
     description: "Steve Vai Signature",
@@ -32,7 +32,7 @@ export const productos = [
     img: "https://www.ibanez.com/common/product_artist_file/file/p_region_JEMJRSP_PK_1P_03.png",
   },
   {
-    title: "Ibanez-JS2480",
+    title: "Ibanez-JS24807",
     price: 1800,
     category: "electric",
     description: "Joe Satriani Signature",
@@ -40,7 +40,7 @@ export const productos = [
     img: "https://www.ibanez.com/common/product_artist_file/file/p_region_JS2480_MCR_00_02.png",
   },
   {
-    title: "Ibanez-PGMM31",
+    title: "Ibanez-PGMM311",
     price: 2700,
     category: "electric",
     description: "Paul Gilbert Signature",
@@ -48,7 +48,7 @@ export const productos = [
     img: "https://www.ibanez.com/common/product_artist_file/file/p_region_PGMM31_WH_5A_02.png",
   },
   {
-    title: "Ibanez-FRM300",
+    title: "Ibanez-FRM300H",
     price: 1300,
     category: "electric",
     description: "Paul Gilbert Firebird",
@@ -56,7 +56,7 @@ export const productos = [
     img: "https://www.ibanez.com/common/product_artist_file/file/p_region_FRM300_PR_4L_01.png",
   },
   {
-    title: "AW54",
+    title: "Ibanez-AW5400B",
     price: 850,
     category: "acoustic",
     description: "Acoustic Guitar",
@@ -64,7 +64,7 @@ export const productos = [
     img: "https://www.ibanez.com/common/product_artist_file/file/p_region_AW54_OPN_1P_02.png",
   },
   {
-    title: "AE325",
+    title: "Ibanez-AE3255X",
     price: 400,
     category: "acoustic",
     description: "Acoustic Guitar",
@@ -72,7 +72,7 @@ export const productos = [
     img: "https://www.ibanez.com/common/product_artist_file/file/p_region_AE325_LGS_1X_03.png",
   },
   {
-    title: "AE240JR",
+    title: "Ibanez-AE240JR",
     price: 650,
     category: "acoustic",
     description: "Acoustic Guitar",
@@ -80,7 +80,7 @@ export const productos = [
     img: "https://www.ibanez.com/common/product_artist_file/file/p_region_AE240JR_MHS_1X_01.png",
   },
   {
-    title: "AEWC11",
+    title: "Ibanez-AEWC11C",
     price: 300,
     category: "acoustic",
     description: "Acoustic Guitar",
@@ -88,7 +88,7 @@ export const productos = [
     img: "https://www.ibanez.com/common/product_artist_file/file/p_region_AEWC11_TCB_5B_02.png",
   },
   {
-    title: "FRH10N",
+    title: "Ibanez-FRH10NX",
     price: 900,
     category: "electric",
     description: "Acoustic Guitar",

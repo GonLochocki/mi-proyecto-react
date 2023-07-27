@@ -31,9 +31,5 @@ export const rutas = [
     path: "/checkout",
     Element: CheckoutContainer,
   },
-  {
-    id: "dashboard",
-    path: "/dashboard",
-    Element: Dashboard,
-  },
+  
 ];
