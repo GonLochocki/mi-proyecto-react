@@ -32,7 +32,7 @@ const CartContextComponente = ({ children }) => {
 
   const vaciarCarrito = () => {
     setCart([]);
-    localStorage.removeItem("cart")
+    localStorage.removeItem("cart")    
   };
 
   const cantidadTotalProductos = () => {
@@ -57,12 +57,13 @@ const CartContextComponente = ({ children }) => {
 
   let data = {
     cart,
+    setCart,
     addToCart,
     eliminarDelCarrito,
     vaciarCarrito,
     cantidadTotalProductos,
     precioTotal,
-    obtenerCantidadPorId,
+    obtenerCantidadPorId,    
   };
 
   return <CartContext.Provider value={data}>{children}</CartContext.Provider>;

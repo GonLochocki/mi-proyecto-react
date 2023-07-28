@@ -38,13 +38,3 @@ const ItemDetailContainer = () => {
 };
 
 export default ItemDetailContainer;
-
-//  useEffect anterior:
-
-{
-  /*  let productoSeleccionado = productos.find(
-      (producto) => producto.id === +id
-    );
-    let promise = new Promise((resolve, reject) => {
-      resolve(productoSeleccionado);  */
-}

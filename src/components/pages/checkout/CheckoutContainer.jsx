@@ -14,7 +14,7 @@ import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 
 const CheckoutContainer = () => {
-  const { cart, precioTotal } = useContext(CartContext);
+  const { cart, precioTotal, setCart } = useContext(CartContext);
   const [orderId, setOrderId] = useState("");
   const navigate = useNavigate();
 
@@ -40,10 +40,17 @@ const CheckoutContainer = () => {
         updateDoc(doc(dataBase, "productos", elemento.id), {
           stock: elemento.stock - elemento.quantity,
         });
-      });
+      });      
+     
+
+      // Utilizo setCart para que una vez finalizada la compra el contador del carrito
+      // regrese a cero.
+
       setTimeout(() => {
+        setCart([])
+        localStorage.removeItem("cart")
         navigate("/");
-      }, 3000);
+      }, 4000);
     },
     validationSchema: Yup.object({
       nombre: Yup.string().required("Campo obligatorio").max(25),
