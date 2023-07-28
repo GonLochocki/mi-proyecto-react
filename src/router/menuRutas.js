@@ -31,5 +31,6 @@ export const rutas = [
     path: "/checkout",
     Element: CheckoutContainer,
   },
+
   
 ];

@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
 import { dataBase } from "../../../firebaseConfig";
 import { getDocs, collection, query, where } from "firebase/firestore";
+import { DotLoader } from "react-spinners";
+import { Box } from "@mui/material";
 
 const ItemListContainer = () => {
   const [items, setItems] = useState([]);
@@ -28,7 +30,7 @@ const ItemListContainer = () => {
   }, [category]);
 
   if (items.length === 0) {
-    return <h1>Cargando...</h1>;
+    return <Box sx={{display: "flex", justifyContent:"center", marginTop:30}}> <DotLoader color="#138BDF" /></Box>;
   }
 
   return <ItemList items={items} />;

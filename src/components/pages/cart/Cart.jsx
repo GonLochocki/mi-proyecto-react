@@ -55,7 +55,7 @@ const Cart = () => {
                 sx={{
                   display: "flex",
                   justifyContent: "flex-end",
-                  marginRight: 3,
+                  marginRight: 5,
                 }}
               >
                 <Button
