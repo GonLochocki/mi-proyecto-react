@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { CartContext } from "../../../context/CartContext";
-import { Button } from "@mui/material";
+import { Box, Button, TextField } from "@mui/material";
 import { dataBase } from "../../../firebaseConfig";
 import {
   addDoc,
@@ -9,75 +9,111 @@ import {
   serverTimestamp,
   updateDoc,
 } from "firebase/firestore";
+import * as Yup from "yup";
+import { useFormik } from "formik";
 
 const CheckoutContainer = () => {
   const { cart, precioTotal } = useContext(CartContext);
   const [orderId, setOrderId] = useState("");
-  const [userData, setUserData] = useState({
-    name: "",
-    phone: "",
-    email: "",
-  });
 
   let total = precioTotal();
 
-  const handleSubmit = (evento) => {
-    evento.preventDefault();
+  const { handleChange, handleSubmit, errors } = useFormik({
+    initialValues: {
+      nombre: "",
+      phone: "",
+      email: "",
+    },
+    onSubmit: (data) => {
+      let order = {
+        comprador: data,
+        items: cart,
+        total,
+        date: serverTimestamp(),
+      };
+      let refCollection = collection(dataBase, "orders");
+      addDoc(refCollection, order).then((res) => setOrderId(res.id));
 
-    let order = {
-      buyer: userData,
-      items: cart,
-      total,
-      date: serverTimestamp(),
-    };
-
-    let orderCollection = collection(dataBase, "orders");
-    addDoc(orderCollection, order).then((res) => {
-      setOrderId(res.id); // para guardar el id en un estado.
-    });
-
-    cart.forEach((elemento) => {
-      updateDoc(doc(dataBase, "productos", elemento.id), {
-        stock: elemento.stock - elemento.quantity,
+      cart.forEach((elemento) => {
+        updateDoc(doc(dataBase, "productos", elemento.id), {
+          stock: elemento.stock - elemento.quantity,
+        });
       });
-    });
-  };
+    },
+    validationSchema: Yup.object({
+      nombre: Yup.string().required("Campo obligatorio").max(25),
+      email: Yup.string().email().required("Campo obligatorio"),
+      phone: Yup.string().required("Campo obligatorio"),
+    }),
 
-  const handleChange = (evento) => {
-    setUserData({ ...userData, [evento.target.name]: evento.target.value });
-  };
+    validateOnChange: false,
+  });
 
   return (
     <div>
-      <h1>Orden de compra</h1>
-      <h2>Ingrese los datos de quien retirará la compra:</h2>
-
       {orderId ? (
-        <h2>Su numero de seguimiento es: {orderId}</h2>
+        <Box>
+          <h2>Su numero de seguimiento es: {orderId}</h2>
+        </Box>
       ) : (
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Nombre..."
-            name="name"
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            placeholder="Telefono..."
-            name="phone"
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            placeholder="Correo electrónico..."
-            name="email"
-            onChange={handleChange}
-          />
-          <Button variant="contained" type="submit">
-            Comprar
-          </Button>
-        </form>
+        <div>
+          <Box
+            sx={{ color: "rgb(3, 24, 80)", textAlign: "center", padding: 5 }}
+          >
+            <h2>ORDEN DE COMPRA</h2>
+          </Box>
+          <Box
+            sx={{
+              color: "rgb(3, 24, 80)",
+              marginLeft: 2,
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <h2>Ingrese los datos de quien retirará la compra:</h2>
+          </Box>
+          <Box sx={{ color: "rgb(3, 24, 80)", marginTop: 2 }}>
+            <form
+              onSubmit={handleSubmit}
+              style={{
+                display: "flex",
+                gap: 5,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <TextField
+                type="text"
+                placeholder="Nombre..."
+                name="nombre"
+                onChange={handleChange}
+                error={errors.nombre ? true : false}
+                helperText={errors.nombre}
+              />
+              <TextField
+                type="text"
+                placeholder="Telefono..."
+                name="phone"
+                onChange={handleChange}
+                error={errors.phone ? true : false}
+                helperText={errors.phone}
+              />
+              <TextField
+                type="text"
+                placeholder="Correo electrónico..."
+                name="email"
+                onChange={handleChange}
+                error={errors.email ? true : false}
+                helperText={errors.email}
+              />
+              <Box sx={{ width: "30px" }}>
+                <Button variant="contained" type="submit" size="small">
+                  Comprar
+                </Button>
+              </Box>
+            </form>
+          </Box>
+        </div>
       )}
     </div>
   );

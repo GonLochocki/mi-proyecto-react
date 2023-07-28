@@ -27,10 +27,21 @@
 }
   
 
+.carrito-vacio {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
 
+.img-empty-cart {
+  width: 300px;
+  margin-top: 50px
+}
 
 
 .total {
     font-size: 30px;
-    color: rgb(3, 24, 43);      
+    color: rgb(3, 24, 43);    
+     
 }
+
